@@ -1,0 +1,256 @@
+
+
+:root {
+  --bg-color: #f5f7fa;
+  --bg-tablet: #e0e7ff;
+  --bg-desktop: #dbeafe;
+
+  --accent-color: #007acc;
+  --alert-color: #ff3b3b;
+
+  --font-main: 'Roboto', sans-serif;
+  --font-secondary: 'Open Sans', sans-serif;
+  --font-title: 'Montserrat', sans-serif;
+
+  --font-color-mobile: #2c3e50;
+  --font-color-tablet: #1f2d3d;
+  --font-color-desktop: #0f172a;
+}
+
+
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-color);
+  color: var(--font-color-mobile);
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #112d4e;
+  color: rgba(164, 189, 221, 0.562);
+  padding: 20px;
+  text-align: center;
+  font-family: var(--font-title);
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column; /* mobile default */
+  align-items: center;    /* centers items horizontally */
+  justify-content: center;/* centers items vertically if needed */
+  gap: 10px;
+}
+
+/* Tablet and Desktop override */
+@media (min-width: 768px) {
+  nav ul {
+    flex-direction: row;   /* row layout for larger screens */
+    justify-content: center; /* center buttons horizontally */
+    align-items: center;
+  }
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: rgb(177, 145, 145);
+  font-weight: bold;
+  padding: 8px 16px;
+  background-color: var(--accent-color);
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: black;
+}
+
+main {
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 30px;
+  background-color: #dbe0e0;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  font-family: var(--font-secondary);
+  animation: fadeIn 1s ease-out;
+}
+
+h2 {
+  color: var(--accent-color);
+  font-family: var(--font-title);
+}
+
+.hero-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.skills-images {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+button {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2a2a72;
+}
+
+footer {
+  background-color: #3f3f3f;
+  color: rgb(255, 227, 227);
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Animated square */
+.animated-square {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  position: relative;
+  animation: moveAndColor 4s infinite alternate;
+  border-radius: 10px;
+}
+
+@keyframes moveAndColor {
+  0% {
+    left: 0;
+    background-color: red;
+  }
+  50% {
+    left: 200px;
+    background-color: blue;
+  }
+  100% {
+    left: 0;
+    background-color: green;
+  }
+}
+
+/* Tablet Styles */
+@media (min-width: 768px) and (max-width: 1023px) {
+  body {
+    background-color: var(--bg-tablet);
+    color: var(--font-color-tablet);
+  }
+
+  header {
+    padding: 30px;
+  }
+  img {
+    max-width: 80px;
+    height: auto;
+  }
+  section {
+    padding: 30px;
+  }
+
+  nav ul {
+    flex-direction: row;
+    gap: 30px;
+  }
+
+  .hero-box {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .skills-images {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+}
+
+/* Desktop Styles */
+@media (min-width: 1024px) {
+  body {
+    background-color: var(--bg-desktop);
+    color: var(--font-color-desktop);
+  }
+
+  header {
+    padding: 40px;
+    font-size: 2rem;
+  }
+
+  section {
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+  }
+
+  nav ul {
+    flex-direction: row;
+    gap: 40px;
+  }
+
+  .hero-box {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .skill-item {
+    text-align: center;
+  }
+
+  .skill-item img {
+    width: 50px;
+    height: auto;
+    object-fit: contain;
+  }
+}
+/* Mobile Styles */
+@media (max-width: 767px) {
+  img {
+    max-width: 150px; /* smaller width for mobile */
+    height: auto;     /* keeps aspect ratio */
+  }
+}
